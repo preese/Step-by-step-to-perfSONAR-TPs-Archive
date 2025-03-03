@@ -72,7 +72,8 @@ Test the install with:
 `pscheduler troubleshoot`
 
 Archive and Grafana install steps:
-``` sudo -s
+```
+sudo -s
 curl -s https://downloads.perfsonar.net/install | sh -s - --auto-updates \
 --add perfsonar-grafana \
 --add perfsonar-grafana-toolkit \
@@ -81,18 +82,21 @@ curl -s https://downloads.perfsonar.net/install | sh -s - --auto-updates \
 archive https://archive.test.net/psconfig/3by3.json
 ```
 Test this install with:
-
-`psarchive troubleshoot --skip-opensearch-data`
+```
+`psarchive troubleshoot --skip-opensearch-data
+```
 
 ```
-sed -i '/# Require ip 10.1.1.1 10.1.1.2/a \ Require ip 192.168.0.0/23\ ' /etc/httpd/conf.d/apache-logstash.conf
+sed -i '/# Require ip 10.1.1.1 10.1.1.2/a \ Require ip 192.168.0.0/23\ ' \
+/etc/httpd/conf.d/apache-logstash.conf
 systemctl restart httpd
 ```
 
 (develop .json file <xxxx.json> which has been done for this install, 3by3.json)
-
-`psconfig validate 3by3.json`
-`psconfig publish 3by3.json`
+```
+psconfig validate 3by3.json
+psconfig publish 3by3.json
+```
 
 open firewall port:  
 ```
