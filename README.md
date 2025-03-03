@@ -57,7 +57,7 @@ Install the Archive and Grafana components on the Archive/Grafana VM
 
 (See below for the minimal command necessary to get the Testpoint installed)
 
-Once completed, visit the Grafana dashboard at `https://archive.test.net/grafana/dashboards``. If everything is set up correctly, you should begin seeing data populate into the dashboard.
+Once completed, visit the Grafana dashboard at `https://archive.test.net/grafana/dashboards`. If everything is set up correctly, you should begin seeing data populate into the dashboard.
 
 -----
 Detailed commands to use for the Testpoint and Archive/Grafana server installs.  Suggest you copy and paste the lines, as they are long.
@@ -68,11 +68,11 @@ sudo -s
 curl -s https://downloads.perfsonar.net/install  | sh -s - --auto-updates --security testpoint https://archive.test.net/psconfig/3by3.json
 ```
 Test the install with:
+
 `pscheduler troubleshoot`
 
 Archive and Grafana install steps:
-```
-sudo -s
+``` sudo -s
 curl -s https://downloads.perfsonar.net/install | sh -s - --auto-updates \
 --add perfsonar-grafana \
 --add perfsonar-grafana-toolkit \
@@ -81,6 +81,7 @@ curl -s https://downloads.perfsonar.net/install | sh -s - --auto-updates \
 archive https://archive.test.net/psconfig/3by3.json
 ```
 Test this install with:
+
 `psarchive troubleshoot --skip-opensearch-data`
 
 ```
@@ -89,6 +90,7 @@ systemctl restart httpd
 ```
 
 (develop .json file <xxxx.json> which has been done for this install, 3by3.json)
+
 `psconfig validate 3by3.json`
 `psconfig publish 3by3.json`
 
