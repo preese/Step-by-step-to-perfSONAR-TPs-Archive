@@ -1,8 +1,6 @@
-# GitHub
- QuickStart-PS
-  
+
  # Quick Start Guide:
- ##Setting Up perfSONAR Testpoints, Archive, and Grafana Hosts
+ ## Setting Up perfSONAR Testpoints, Archive, and Grafana Hosts
  
 Originally getting a MaDDash site up and running was quite challenging. Andy Lake’s **MaDDash Quick Install Guide** proved to be very helpful. However, it still left out an essential detail: what exactly should the .json file look like?  While it's thoroughly documented, I didn't want to keep dozens of tabs open in my browser to reference all the details.
 
@@ -22,12 +20,12 @@ If you're just starting out and need more guidance, you might want to begin by s
 
 1. **Overview of the Setup Process**
 Here's a high-level outline of the steps we’ll follow:
-    1. Create a base VM with a supported OS (from the perfSONAR list).
-    2. Clone the base VM to create one Testpoint node. Ensure it's fully configured and tested.
-    3. Clone the known good Testpoint VM two more times, for a total of three Testpoint VMs.
-    4. Use the Base VM to create a new VM for the Archive and Grafana setup.
-    5. Configure the Archive node and Grafana, then add the 3by3.json file to all nodes.
-    6. Verify the system and ensure the Grafana dashboard starts populating.
+1. Create a base VM with a supported OS (from the perfSONAR list).
+2. Clone the base VM to create one Testpoint node. Ensure it's fully configured and tested.
+3. Clone the known good Testpoint VM two more times, for a total of three Testpoint VMs.
+4. Use the Base VM to create a new VM for the Archive and Grafana setup.
+5. Configure the Archive node and Grafana, then add the 3by3.json file to all nodes.
+6. Verify the system and ensure the Grafana dashboard starts populating.
 
 The following sections will provide step-by-step instructions for setting up a working perfSONAR grid using Cockpit and virtual machines.
 
@@ -49,29 +47,31 @@ B. Clone the Base VM to create a Testpoint node. This will be your first Testpoi
         
 (See below for the minimal command necessary to get the Testpoint installed)
 
-C. Clone the Testpoint VM (ps01) two more times to create ps02 and ps03.
+Clone the Testpoint VM (ps01) two more times to create ps02 and ps03.
 - Ensure each cloned VM is configured with the appropriate MAC address for each instance to enable static DHCP IP allocation. This will allow the VMs to retain consistent IP addresses.
 - Re-check the networking configuration to use Direct Attachment for all cloned VMs.
-D. Clone the Base VM again to create the Archive/Grafana VM.
+Clone the Base VM again to create the Archive/Grafana VM.
 - Increase the allocated RAM to 8GB for the Archive VM.
 - Configure the networking with Direct Attachment to ensure communication with the other VMs.
-E. Install the Archive and Grafana components on the Archive/Grafana VM
+Install the Archive and Grafana components on the Archive/Grafana VM
 
 (See below for the minimal command necessary to get the Testpoint installed)
 
-Once completed, visit the Grafana dashboard at https://archive.test.net/grafana/dashboards. If everything is set up correctly, you should begin seeing data populate into the dashboard.
+Once completed, visit the Grafana dashboard at `https://archive.test.net/grafana/dashboards``. If everything is set up correctly, you should begin seeing data populate into the dashboard.
 
 -----
 Detailed commands to use for the Testpoint and Archive/Grafana server installs.  Suggest you copy and paste the lines, as they are long.
 
 Testpoint install steps:
+```
 sudo -s
 curl -s https://downloads.perfsonar.net/install  | sh -s - --auto-updates --security testpoint https://archive.test.net/psconfig/3by3.json
-
+```
 Test the install with:
-pscheduler troubleshoot
+`pscheduler troubleshoot`
 
 Archive and Grafana install steps:
+```
 sudo -s
 curl -s https://downloads.perfsonar.net/install | sh -s - --auto-updates \
 --add perfsonar-grafana \
@@ -79,19 +79,22 @@ curl -s https://downloads.perfsonar.net/install | sh -s - --auto-updates \
 --add perfsonar-psconfig-hostmetrics \
 --add perfsonar-psconfig-publisher \
 archive https://archive.test.net/psconfig/3by3.json
-
+```
 Test this install with:
-psarchive troubleshoot --skip-opensearch-data
+`psarchive troubleshoot --skip-opensearch-data`
 
+```
 sed -i '/# Require ip 10.1.1.1 10.1.1.2/a \ Require ip 192.168.0.0/23\ ' /etc/httpd/conf.d/apache-logstash.conf
 systemctl restart httpd
+```
 
 (develop .json file <xxxx.json> which has been done for this install, 3by3.json)
-psconfig validate 3by3.json
-psconfig publish 3by3.json
+`psconfig validate 3by3.json`
+`psconfig publish 3by3.json`
 
 open firewall port:  
+```
 firewall-cmd --perm --add-service=https
 firewall-cmd --reload
-
+```
 
