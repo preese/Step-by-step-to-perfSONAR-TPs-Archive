@@ -1,0 +1,191 @@
+{
+    "archives": {
+        "3by3-archive":{
+           "archiver":"http",
+           "data":{
+              "schema":3,
+              "_url":"https://md.ufixu.com/logstash",
+              "verify-ssl":false,
+              "op":"put",
+              "_headers":{
+                 "x-ps-observer":"{% scheduled_by_address %}",
+                 "content-type":"application/json"
+        }
+      }
+     }
+    },
+    "addresses": {
+       "host-1": { "address": "ps01.ufixu.com" },
+       "host-2": { "address": "ps02.ufixu.com" },
+       "host-3": { "address": "ps03.ufixu.com" }
+    },
+    "groups": {
+        "Mesh": {
+            "type": "mesh",
+            "addresses": [
+                { "name": "host-1" },
+                { "name": "host-2" },
+                { "name": "host-3" }
+            ]
+         },
+        "disjoint-mesh": {
+            "type": "disjoint",
+	    "unidirectional": true,
+            "a-addresses": [
+                { "name": "host-1" }
+             ],
+	    "b-addresses": [
+                { "name": "host-2" },
+                { "name": "host-3" }
+            ]
+         }
+     },
+    "tests": {
+       "test_rtt": {
+            "type": "rtt",
+            "spec": {
+                "source": "{% address[0] %}",
+                "dest": "{% address[1] %}",
+                "count": 10,
+                "interval": "PT1S",
+                "length": 1000
+            }
+        },
+       "test_latencybg": {
+            "type": "latencybg",
+            "spec": {
+                "source": "{% address[0] %}",
+                "dest": "{% address[1] %}",
+ 	        "packet-interval": 0.1,
+ 	        "packet-count": 600,
+                "flip": "{% flip %}"
+            }
+        },
+       "test_throughput": {
+            "type": "throughput",
+            "spec": {
+                "source": "{% address[0] %}",
+		"dest": "{% address[1] %}",
+		"reverse": true,
+                "duration": "PT20S"
+            }
+        },
+       "test_trace": {
+            "type": "trace",
+            "spec": {
+                "source": "{% address[0] %}",
+                "dest": "{% address[1] %}"
+            }
+        }
+    },
+    "schedules": {
+        "30Min_schedule_PT30M": {
+            "repeat": "PT30M",
+            "sliprand": true,
+            "slip": "PT10M"
+        },
+        "10Min_schedule_PT10M": {
+            "repeat": "PT10M",
+            "sliprand": true,
+            "slip": "PT10M"
+        }
+    },
+    "tasks": {
+        "test_rtt": {
+            "group": "Mesh",
+            "test": "test_rtt",
+            "schedule": "10Min_schedule_PT10M",
+            "archives": [
+                 "3by3-archive"
+            ],
+        "reference": {
+            "display-task-name": "PS5-task_rtt",
+            "display-task-group": [ "ps-3x3" ]
+            }
+        },
+        "test_latencybg": {
+            "group": "Mesh",
+            "test": "test_latencybg",
+            "archives": [
+                 "3by3-archive"
+            ],
+        "reference": {
+            "display-task-name": "PS5-task_latencybg",
+            "display-task-group": [ "ps-3x3" ]
+            }
+        },
+        "test_throughput": {
+            "group": "Mesh",
+            "test": "test_throughput",
+	    "tools": [ "iperf3" ],
+            "schedule": "30Min_schedule_PT30M",
+            "archives": [
+                 "3by3-archive"
+            ],
+        "reference": {
+            "display-task-name": "PS5-task_throughput",
+            "display-task-group": [ "ps-3x3" ]
+            }
+        },
+        "test_trace": {
+            "group": "Mesh",
+            "test": "test_trace",
+            "schedule": "10Min_schedule_PT10M",
+            "archives": [
+                 "3by3-archive"
+            ],
+        "reference": {
+            "display-task-name": "PS5-task_trace",
+            "display-task-group": [ "ps-3x3" ]
+            }
+        },
+        "test_rtt-dj": {
+            "group": "disjoint-mesh",
+            "test": "test_rtt",
+            "schedule": "10Min_schedule_PT10M",
+            "archives": [
+                 "3by3-archive"
+            ],
+        "reference": {
+            "display-task-name": "PS5-DJ-task_rtt",
+            "display-task-group": [ "ps-dj-1-3-1by2" ]
+            }
+        },
+        "test_latencybg-dj": {
+            "group": "disjoint-mesh",
+            "test": "test_latencybg",
+            "archives": [
+                 "3by3-archive"
+            ],
+        "reference": {
+            "display-task-name": "PS5-DJ-task_latencybg",
+            "display-task-group": [ "ps-dj-1-3-1by2" ]
+            }
+        },
+        "test_throughput-dj": {
+            "group": "disjoint-mesh",
+            "test": "test_throughput",
+	    "tools": [ "iperf3" ],
+            "schedule": "30Min_schedule_PT30M",
+            "archives": [
+                 "3by3-archive"
+            ],
+        "reference": {
+            "display-task-name": "PS5-DJ-task_throughput",
+            "display-task-group": [ "ps-dj-1-3-1by2" ]
+            }
+        },
+        "test_trace-dj": {
+            "group": "disjoint-mesh",
+            "test": "test_trace",
+            "schedule": "10Min_schedule_PT10M",
+            "archives": [
+                 "3by3-archive"
+            ],
+        "reference": {
+            "display-task-name": "PS5-DJ-task_trace",
+            "display-task-group": [ "ps-dj-1-3-1by2" ]
+            }
+        }
+     }
+  }
