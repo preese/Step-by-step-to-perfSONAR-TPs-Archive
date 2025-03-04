@@ -1,8 +1,10 @@
+## Prerequisites
+
 1. **Prerequisites**
 - This guide assumes a moderate level of Linux, OS and Grafana experience.
 - Familiarity with Cockpit for system configuration and VM management is helpful.
 - The guide includes instructions for using Cockpit, but other tools or bare-metal setups can be used as well.
-- If you're new to Linux or Cockpit, I suggest checking out the provided [links](#additional-resources).
+- If you're new to Linux or Cockpit, I suggest checking out the provided [links](#Additional-Resources/Cockpit-link.md).
 
 There is nothing wrong with starting using bare metal servers for the Testpoints and Archive hosts. You can then use the 3by3.json file to quickly get a working Grafana grid.
 
