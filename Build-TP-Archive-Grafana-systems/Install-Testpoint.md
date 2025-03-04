@@ -1,4 +1,4 @@
-## Specific steps to install a Testpoint app on a cloned base node:
+## Specific steps to install a Testpoint app, once, on a cloned base node:
 ```
 sudo -s
 curl -s https://downloads.perfsonar.net/install  | sh -s - \
