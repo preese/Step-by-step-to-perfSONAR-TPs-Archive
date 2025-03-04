@@ -11,16 +11,17 @@ archive https://vm-host.test.net/psconfig/3by3.json
 ```
 Run:  
 `psarchive troubleshoot --skip-opensearch-data`
+
 If this runs successfully proceed, if not reinstall.
 
 Add ip range and finish up installs:
 ````
-sed -i '/# Require ip 10.1.1.0\/24/a \ Require ip 192.168.9.0\/23\ ' \
+sed -i '/# Require ip 10.1.1.0\/24/a \ Require ip 192.168.1.0\/24\ ' \
 /etc/httpd/conf.d/apache-logstash.conf
 systemctl restart httpd
 psconfig validate 3by3.json
 psconfig publish 3by3.json
 ````
-# open firewall port:  
-# firewall-cmd --perm --add-service=https
-# firewall-cmd --reload
+open firewall port:  
+firewall-cmd --perm --add-service=https
+firewall-cmd --reload
