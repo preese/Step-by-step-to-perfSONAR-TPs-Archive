@@ -2,7 +2,7 @@
 - This guide assumes a moderate level of Linux, OS and Grafana experience.
 - Familiarity with Cockpit for system configuration and VM management is helpful.
 - The guide includes instructions for using Cockpit, but other tools or bare-metal setups can be used as well.
-- If you're new to Linux or Cockpit, I suggest checking out the provided [links](#Additional-Resources).
+- If you're new to Linux or Cockpit, I suggest checking out the provided [links](#additional-resources).
 
 There is nothing wrong with starting using bare metal servers for the Testpoints and Archive hosts. You can then use the 3by3.json file to quickly get a working Grafana grid.
 
@@ -15,6 +15,7 @@ However, if you don't have a pile of hardware available but you'd like to see ho
 - Install Cockpit and components (cockpit-machines) to manage virtual machines
 
 3. **Overview of the Setup Process**
+
 Here's a high-level outline of the steps we’ll follow:
 - Create a base VM with a supported OS (from the perfSONAR list).
 - Clone the base VM to create one Testpoint node. Ensure it's fully configured and tested.
@@ -24,9 +25,9 @@ Here's a high-level outline of the steps we’ll follow:
 - Verify the system and ensure the Grafana dashboard starts populating.
 
 4. **Set Up the Virtual Machines**
-	1. Create a "Base" VM on your host machine. The base VM runs a supported OS and 4 GB of RAM allocated.  Configure networking for Direct Attachment in Cockpit, ensuring that each VM can communicate with others on the same host. _This is critical for Testpoints to interact with the Archive and Grafana VMs.__
+	1. Create a "Base" VM on your host machine. The base VM runs a supported OS and 4 GB of RAM allocated.  Configure networking for Direct Attachment in Cockpit, ensuring that each VM can communicate with others on the same host. _This is critical for Testpoints to interact with the Archive and Grafana VMs._
 	2. Clone the Base VM to create a Testpoint node. This will be (ps01).
-- Once cloned, [install the Testpoint package](#Build-TP-Archive-Grafana-systems/Install-Testpoint.md)
+- Once cloned, [install the Testpoint package](#build-tp-archive-grafana-systems/install-testpointmd)
         
 	3. Clone the Testpoint VM (ps01) two more times to create ps02 and ps03.  Ensure each cloned VM is configured with the appropriate MAC address and IP as well as Direct Attachement status.
 	4. Clone the Base VM again to create the Archive/Grafana VM (archive).  Increase the allocated RAM to 8GB, configure with the appropriate MAC address and IP as well as Direct Attachement status.
