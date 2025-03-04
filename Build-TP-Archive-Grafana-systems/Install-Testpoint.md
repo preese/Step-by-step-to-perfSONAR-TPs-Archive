@@ -1,0 +1,13 @@
+## Specific steps to install a Testpoint app on a cloned base node:
+```
+sudo -s
+curl -s https://downloads.perfsonar.net/install  | sh -s - \
+--auto-updates --security testpoint \ https://vm-host.test.net/psconfig/3by3.json
+````
+(wait quite awhile)
+````
+pscheduler troubleshoot
+````
+If this returns successfully proceed, if not reinstall.
+
+`poweroff`
