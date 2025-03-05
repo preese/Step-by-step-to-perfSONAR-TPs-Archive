@@ -9,5 +9,5 @@ This guide walks through setting up a set of virtual machines (VMs) with perfSON
 
 If you're only interested in the .json file, feel free to grab the &&_3by3.json_** file and skip the rest.
 
-[Click for the Prerequisites](../Prerequisites/Preqs-install.md)
+[Click for the Prerequisites](Prerequisites/Preqs-install.md)
 
