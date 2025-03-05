@@ -7,7 +7,7 @@ curl -s https://downloads.perfsonar.net/install | sh -s - --auto-updates \
 --add perfsonar-grafana-toolkit \
 --add perfsonar-psconfig-hostmetrics \
 --add perfsonar-psconfig-publisher \
-archive https://vm-host.test.net/psconfig/3by3.json
+archive https://archive.test.net/psconfig/3by3.json
 ```
 Run:  
 `psarchive troubleshoot --skip-opensearch-data`
@@ -23,5 +23,5 @@ psconfig validate 3by3.json
 psconfig publish 3by3.json
 ````
 open firewall port:  
-firewall-cmd --perm --add-service=https
+firewall-cmd --perm --add-service=https  
 firewall-cmd --reload

@@ -1,16 +1,16 @@
 ## Prerequisites and Install Process
 
-1. **Prerequisites**
+1. **Prerequisites**  
 	- This guide assumes a moderate level of Linux, OS and Grafana experience.
 	- Familiarity with Cockpit for system configuration and VM management is helpful.
 	- The guide includes instructions for using Cockpit, but other tools or bare-metal setups can be used as well.
 	- If you're new to Linux or Cockpit, I suggest checking out the provided [links](../Additional-Resources/Cockpit-link.md).
 
-Starting with bare metal servers for the Testpoints and Archive hosts is straight forward. You can then use the **_3by3.json_**_ file to quickly get a working Grafana grid.
+Starting with bare metal servers for the Testpoints and Archive hosts is straight forward. You can then use the **_[3by3.json](../3by3.json)_** file to quickly get a working Grafana grid.
 
 If you don't have a pile of hardware available but you'd like to see how the perfSONAR-Grafana tools work together, the rest of this is for you.
 
-2. **System Requirements**
+2. **System Requirements**  
 	- A host system- 4 cores, 32 GB, and 300 GB of available storage.
 	- The system should have internet access at 1G or more for downloading dependencies.
 	- Install your preferred, modern, up-to-date OS. (Doesn't have to be on the PS list!)
@@ -22,7 +22,7 @@ Here's a high-level outline of the steps we’ll follow:
 	- Clone the base VM to create one Testpoint node. Ensure it's fully configured and tested.
 	- Clone the known good Testpoint VM two more times, for a total of three Testpoint VMs.
 	- Use the Base VM to clone a new VM for the Archive and Grafana setup.
-	- Configure the Archive node and Grafana, then add the **_3by3.json_**_ file to all nodes.
+	- Configure the Archive node and Grafana, then add the **_[3by3.json](../3by3.json)_**_ file to all nodes.
 	- Verify the system and ensure the Grafana dashboard starts populating.
 
 4. **Set Up the Virtual Machines**  
