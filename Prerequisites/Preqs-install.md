@@ -4,7 +4,7 @@
 - This guide assumes a moderate level of Linux, OS and Grafana experience.
 - Familiarity with Cockpit for system configuration and VM management is helpful.
 - The guide includes instructions for using Cockpit, but other tools or bare-metal setups can be used as well.
-- If you're new to Linux or Cockpit, I suggest checking out the provided [links](../../Additional-Resources/Cockpit-link.md).
+- If you're new to Linux or Cockpit, I suggest checking out the provided [links](../Additional-Resources/Cockpit-link.md).
 
 There is nothing wrong with starting using bare metal servers for the Testpoints and Archive hosts. You can then use the 3by3.json file to quickly get a working Grafana grid.
 
@@ -26,14 +26,14 @@ Here's a high-level outline of the steps we’ll follow:
 - Verify the system and ensure the Grafana dashboard starts populating.
 
 4. **Set Up the Virtual Machines**
-(Review the [Network Setup](../../Network-Details/Network-spec.md) page for needed details.)
+(Review the [Network Setup](../Network-Details/Network-spec.md) page for needed details.)
 1. Create a "Base" VM on your host machine. The base VM runs a supported OS and 4 GB of RAM allocated.  Configure networking for Direct Attachment in Cockpit, ensuring that each VM can communicate with others on the same host. _This is critical for Testpoints to interact with the Archive and Grafana VMs._
 2. Clone the Base VM to create a Testpoint node. This will be (ps01).
-3. Once cloned, [install the Testpoint package](../../Build-TP-Archive-Grafana-systems/Install-Testpoint.md)
+3. Once cloned, [install the Testpoint package](../Build-TP-Archive-Grafana-systems/Install-Testpoint.md)
         
 4. Clone the Testpoint VM (ps01) two more times to create ps02 and ps03.  Ensure each cloned VM is configured with the appropriate MAC address and IP as well as Direct Attachement status.
 5. Clone the Base VM again to create the Archive/Grafana VM (archive).  Increase the allocated RAM to 8GB, configure with the appropriate MAC address and IP as well as Direct Attachement status.
-6. Install the [Archive and Grafana components](../../Build-TP-Archive-Grafana-systems/Install-Archive-Grafana.md)
+6. Install the [Archive and Grafana components](../Build-TP-Archive-Grafana-systems/Install-Archive-Grafana.md)
 
 When completed, visit the Grafana dashboard at `https://archive.test.net/grafana/dashboards`. If everything is set up correctly, you should begin seeing data populate into the dashboard. The latency and RTT grids populate first on the Grafana dashboard. The Grafana default historical time is 24 hours, so adjust it to 5-10 minutes for a quicker view of the data.
 
