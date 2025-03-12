@@ -1,7 +1,7 @@
 ## Network Setup and IP Configuration
 
 For consistency, the following network configuration will be used in this guide:
-(Ensure you adjust these settings based on your setup!)
+**__(Ensure you adjust these settings, sprinkled through the files, based on your setup!)_**_
 
 - Network Name: test.net
 - IP Range: 192.168.1.0/24
