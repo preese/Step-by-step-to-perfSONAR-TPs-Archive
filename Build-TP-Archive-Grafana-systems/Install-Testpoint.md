@@ -3,9 +3,9 @@
 sudo -s  
 curl -s https://downloads.perfsonar.net/install  | sh -s - \  
 --auto-updates --security testpoint \  
- https://archive.test.net/psconfig/3by3.json
+https://archive.test.net/psconfig/3by3.json
 ````
-(wait quite awhile)
+(wait awhile)
 
 `pscheduler troubleshoot`
 
