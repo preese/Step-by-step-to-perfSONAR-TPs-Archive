@@ -1,7 +1,7 @@
 ## Network Setup and IP Configuration
 
 For consistency, the following network configuration will be used in this guide:  
-**_(Ensure you adjust these settings, sprinkled through the files, based on your setup!)_**
+**_(Be sure you adjust these settings, sprinkled through the files, based on your setup!)_**
 
 - Network Name: test.net
 - IP Range: 192.168.1.0/24
@@ -14,6 +14,8 @@ For consistency, the following network configuration will be used in this guide:
 - Archive VM:
 	- archive: 192.168.1.203
     
-For 'static DHCP' address provision, you'd add the system's MAC Address to a file in the DHCP server.  Then you'd link the MAC to an IP address you'd like the system to use, as noted above.  (This process is generic, your location may have different ways to accomplish this melding of MAC with IP and FQDN host name.)
+Suggest you use 'Static DHCP' addressing for the nodes. 
 
-For VM's, MAC addresses can be auto generated when the VM is started.  Cockpit allows the MAC to be associated with the VM at creation time, as well as to set Direct Attachement status.  These notes expect something of this sort takes place.
+Within Cockpit's view of a VM, there is an option- Network interfaces, click edit.  The image below shows the key areas for edits.
+
+[Network Interfaces window](Network-Edit.png)
