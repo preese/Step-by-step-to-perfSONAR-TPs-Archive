@@ -22,7 +22,7 @@ Here's a high-level outline of the steps we’ll follow:
 - Clone the base VM to create one Testpoint node. Ensure it's fully configured and tested.
 - Clone the known good Testpoint VM two more times, for a total of three Testpoint VMs.
 - Use the Base VM to clone a new VM for the Archive and Grafana setup.
-- Configure the Archive node and Grafana, then add the **_[3by3.json](../3by3.json)_**_ file to all nodes, via the 'psconfig remote' command.
+- Configure the Archive node and Grafana, then add the **_[3by3.json](../3by3.json)_**_ file to all nodes, via the 'psconfig remote add' command.
 - Verify the system and ensure the Grafana dashboard starts populating.
 
 4. **Set Up the Virtual Machines**  

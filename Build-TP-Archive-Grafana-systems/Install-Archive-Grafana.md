@@ -9,7 +9,7 @@ curl -s https://downloads.perfsonar.net/install | sh -s - --auto-updates \
 --add perfsonar-grafana-toolkit \
 --add perfsonar-psconfig-hostmetrics \
 --add perfsonar-psconfig-publisher \
-archive https://**archive.test.net**/psconfig/**3by3.json**
+archive https://archive.test.net/psconfig/3by3.json
 ```
 Run:  
 `psarchive troubleshoot --skip-opensearch-data`
@@ -18,11 +18,11 @@ If this runs successfully proceed, if not reinstall.
 
 Add ip range and finish up installs:
 ````
-sed -i '/# Require ip 10.1.1.0\/24/a \ Require ip **192.168.1.0\/24**\ ' \
+sed -i '/# Require ip 10.1.1.0\/24/a \ Require ip 192.168.1.0\/24\ ' \
 /etc/httpd/conf.d/apache-logstash.conf
 systemctl restart httpd
-psconfig validate **3by3.json**
-psconfig publish **3by3.json**
+psconfig validate 3by3.json  
+psconfig publish 3by3.json  
 firewall-cmd --perm --add-service=https  
 firewall-cmd --reload
 ````

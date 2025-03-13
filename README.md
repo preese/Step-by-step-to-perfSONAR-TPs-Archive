@@ -7,7 +7,7 @@ With perfSONAR V5, the introduction of Testpoints, Archive and Grafana sites mad
 
 This guide walks through setting up a set of virtual machines (VMs) with perfSONAR Testpoint, along with the central Archive and Grafana components. Also provided will be a working .json file for your convenience. 
 
-If you're only interested in the .json file, feel free to grab the **_[3by3.json](./3by3.json)_** file and skip the rest.
+If you're only interested in the .json file, feel free to grab the **_[3by3.json](./3by3.json)_** file and skip the rest.  (remember to edit the .json to reflect your systems FQDNs  )
 
 [Click for the Prerequisites and Install Process](Prerequisites/Preqs-install.md)
 
