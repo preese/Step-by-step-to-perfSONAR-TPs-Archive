@@ -1,5 +1,5 @@
 ## Specific steps to install the Archive and Grafana apps on a cloned base node:  
-**Confirm you are using YOUR FQDN names and IP numbers! (see 'bold' items)**  
+**Confirm you are using YOUR FQDN names and IP numbers!**  
 
 (the second line is very long, suggest you copy and paste it)
 ```

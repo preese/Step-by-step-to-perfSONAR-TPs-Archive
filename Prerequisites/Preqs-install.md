@@ -34,5 +34,5 @@ Here's a high-level outline of the steps we’ll follow:
 - Clone the Base VM again to create the Archive/Grafana VM (archive).  Increase the allocated RAM to 8GB, configure with the appropriate MAC address and IP as well as _Direct attachement_ status.
 - Install the [Archive and Grafana components](../Build-TP-Archive-Grafana-systems/Install-Archive-Grafana.md)
 
-When completed, visit the Grafana dashboard at `https://**archive.test.net**/grafana/dashboards`. If everything is set up correctly, you should begin seeing data populate into the dashboard. The latency and RTT grids populate first on the Grafana dashboard. The Grafana default historical time is 24 hours, so adjust it to 5-10 minutes for a quicker view of the data.
+When completed, visit the Grafana dashboard at `https://archive.test.net/grafana/dashboards`. If everything is set up correctly, you should begin seeing data populate into the dashboard. The latency and RTT grids populate first on the Grafana dashboard. The Grafana default historical time is 24 hours, so adjust it to 5-10 minutes for a quicker view of the data.
 
