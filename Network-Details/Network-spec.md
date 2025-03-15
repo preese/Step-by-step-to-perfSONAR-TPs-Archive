@@ -18,4 +18,4 @@ Suggest you use 'Static DHCP' addressing for the nodes.
 
 Within Cockpit's view of a VM, there is an option- Network interfaces, click edit.  The image below shows the key areas for edits.
 
-[Network Interfaces window](Network-Edit.png)
+[Network Interfaces window](Network-Edit2.png)
