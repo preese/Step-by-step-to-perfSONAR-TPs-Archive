@@ -16,6 +16,8 @@ Run:
 
 If this runs successfully proceed, if not reinstall.
 
+Copy the 3by3.json file to this VM, adjust FQDMs in the file as needed.
+
 Add ip range and finish up installs:
 ````
 sed -i '/# Require ip 10.1.1.0\/24/a \ Require ip 192.168.1.0\/24\ ' \
