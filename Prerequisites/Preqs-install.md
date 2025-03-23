@@ -1,7 +1,7 @@
 ## Prerequisites and Install Process
 
 1. **Prerequisites**  
-- This guide assumes a moderate level of Linux, OS and Grafana experience.
+- This guide assumes a moderate level of Linux and Grafana experience.
 - Familiarity with Cockpit for system configuration and VM management is helpful.
 - The guide includes instructions for using Cockpit, but other tools or bare-metal setups can be used as well.
 - If you're new to Linux or Cockpit, I suggest checking out the provided [links](../Additional-Resources/Cockpit-link.md).
