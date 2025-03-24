@@ -34,16 +34,16 @@ The actual information used in the demo:
 - Archive VM:
 	- md-u: 192.168.0.50 52:54:00:9f:0a:05
 
-Updates needed during the install:  
+**Updates needed during the install:**  
 
-curl -s https://downloads.perfsonar.net/install  | sh -s - --auto-updates --repo staging \
---security testpoint https://md-u.ufixu.com/psconfig/3by3.json
+`curl -s https://downloads.perfsonar.net/install  | sh -s - --auto-updates --repo staging \
+--security testpoint https://md-u.ufixu.com/psconfig/3by3.json`
 
-sed -i '/# Require ip 10.1.1.0\/24/a \ Require ip **192.168.0.0\/23\** ' \
-/etc/httpd/conf.d/apache-logstash.conf
+`sed -i '/# Require ip 10.1.1.0\/24/a \ Require ip 192.168.0.0\/23\ ' \
+/etc/httpd/conf.d/apache-logstash.conf`
 
 The URL to view the Grafana dashboard:
-**https://md-u.ufixu.com/psconfig/grafana/dashboard/**
+``**https://md-u.ufixu.com/psconfig/grafana/dashboard/**``
 
 ````
 {
