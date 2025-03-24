@@ -16,7 +16,7 @@ Run:
 
 If this runs successfully proceed, if not reinstall.
 
-Copy the 3by3.json file to this VM, adjust FQDMs in the file as needed.
+Copy the  **_[3by3.json](../3by3.json)_** file to this VM, adjust FQDMs in the file as needed.
 
 Add ip range and finish up installs:
 ````
