@@ -42,6 +42,9 @@ curl -s https://downloads.perfsonar.net/install  | sh -s - --auto-updates --repo
 sed -i '/# Require ip 10.1.1.0\/24/a \ Require ip **192.168.0.0\/23\** ' \
 /etc/httpd/conf.d/apache-logstash.conf
 
+The URL to view the Grafana dashboard:
+**https://md-u.ufixu.com/psconfig/grafana/dashboard/**
+
 ````
 {
     "archives": {
