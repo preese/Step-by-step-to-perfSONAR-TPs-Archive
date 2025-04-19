@@ -4,9 +4,9 @@ sudo -s
 curl -s https://downloads.perfsonar.net/install  | sh -s - \
 --auto-updates --security testpoint \
 https://archive.test.net/psconfig/3by3.json
-````
 
-`pscheduler troubleshoot`
+pscheduler troubleshoot
+````
 
 If this returns successfully proceed, if not reinstall.
 
