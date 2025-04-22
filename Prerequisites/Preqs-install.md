@@ -14,7 +14,7 @@ If you don't have a pile of hardware available but you'd like to see how the per
 - A host system- 4 cores, 16GB RAM, and 300GB of available storage.
 - The system should have internet access at 1G or more for downloading dependencies.
 - Install your preferred, modern, up-to-date OS. (Doesn't have to be on the PS list!)
-- Install Cockpit and components (cockpit-machines) to manage virtual machines
+- Install Cockpit and components (**cockpit-machines**) to manage virtual machines
 
 3. **Overview of the Setup Process**  
 Here's a high-level outline of the steps we’ll follow:
