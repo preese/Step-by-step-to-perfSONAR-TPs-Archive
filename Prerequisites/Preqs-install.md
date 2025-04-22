@@ -30,7 +30,7 @@ Here's a high-level outline of the steps we’ll follow:
 - Clone the Base VM to create the Archive/Grafana VM (**archive**).  Increase the allocated RAM to 8GB, configure with the appropriate MAC address and IP using **Direct attachement** status.
 - Install the [Archive and Grafana components](../Build-TP-Archive-Grafana-systems/Install-Archive-Grafana.md), leave VM running.
 - Clone the Base VM to create a Testpoint VM. This will be (**ps01**).
-- Once cloned, [install the Testpoint package](../Build-TP-Archive-Grafana-systems/Install-Testpoint.md), poweroff the VM.  
+- Once cloned, [install the Testpoint package](../Build-TP-Archive-Grafana-systems/Install-Testpoint.md), configure with the appropriate MAC address and IP using **Direct attachement** status, poweroff the VM.  
 - Clone the Testpoint VM (**ps01**) two more times to create **ps02** and **ps03**.  Ensure each cloned VM is configured with the appropriate MAC address and IP as well as **Direct attachement** status.
 - Start all three testpoints now.
 
