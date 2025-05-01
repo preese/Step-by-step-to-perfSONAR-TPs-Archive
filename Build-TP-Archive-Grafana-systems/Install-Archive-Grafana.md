@@ -15,7 +15,7 @@ archive https://archive.ufixu.com/psconfig/3by3.json
 sed -i '/# Require ip 10.1.1.0\/24/a \ Require ip 192.168.0.0\/23\ ' \
     /etc/httpd/conf.d/apache-logstash.conf
 systemctl restart httpd
-psconfig publish 3by3-d.json
+psconfig publish 3by3.json
 firewall-cmd --perm --add-service=https
 firewall-cmd --reload
 ```
